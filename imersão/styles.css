@@ -6,38 +6,38 @@
 /* Estiliza o corpo da página */
 body {
     font-family: "Lexend", sans-serif; /* Define a fonte padrão */
-    background-image: url(background\ iamge.jpg);
+    background-image: url(./assets/background\ iamge.jpg);
     background-size: cover;
     background-color: #89FC00; /* Cor de fundo da página */
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
     align-items: center; /* Centraliza os itens horizontalmente */
     justify-content: center; /* Centraliza os itens verticalmente */
-    height: 100vh; /* Preenche a altura total da viewport */
+    height: 95vh; /* Preenche a altura total da viewport */
     margin: 0; /* Remove a margem padrão */
     padding: 0; /* Remove o padding padrão */
 }
-header img{
-    width: 25rem;
-    height: 10rem;
+.image-logo{
+    width: 40rem;
+    height: 20rem;
+    opacity: 1;
+    transition: all 1.5s ease-in-out;
 }
-/* Estiliza os títulos h1 */
-h1 {
-    font-size: 2.5rem; /* Tamanho da fonte */
-    color: #222222; /* Cor do texto */
-    text-align: center; /* Alinha o texto ao centro */
-    letter-spacing: 0.4rem; /* Espaçamento entre letras */
-    font-weight: 900;
-}
-
 /* Estiliza as seções da página */
 section {
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
     align-items: center; /* Centraliza os itens horizontalmente */
-    margin-bottom: 3rem; /* Espaçamento abaixo de cada seção */
+    justify-content: space-around;
+    transition: all 1.5s ease-in-out;
+}
+.main {
+    margin: 15vh; /* Espaçamento abaixo de cada seção */
 }
 
+section button{
+    font-family: "Lexend", sans-serif;
+}
 /* Estiliza os inputs dentro das seções */
 section input {
     width: 30rem; /* Largura dos inputs */
@@ -50,6 +50,14 @@ section input {
     box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
+section input::placeholder {
+    color: #6c6c6d;
+    font-family: "Lexend", sans-serif;
+    background: url(./assets/lupa100x100.png) no-repeat;
+    background-position: 26rem;
+    background-size: 1rem;
+}
+
 /* Estiliza os botões dentro das seções */
 section button {
     padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
@@ -59,6 +67,7 @@ section button {
     color: #F5F7F8; /* Cor do texto do botão */
     font-size: 1rem; /* Tamanho da fonte */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    margin-bottom: 1rem;
 }
 
 /* Adiciona efeito hover ao botão de pesquisa */
@@ -66,24 +75,92 @@ section button:hover {
     background-color: #30475E; /* Muda a cor de fundo ao passar o mouse */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
 }
+.container-filtros{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 5rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    height: 0;
+}
+
+.container-filtro-botao{
+    cursor: pointer;
+}
+
+.container-filtro-botao label{
+    cursor: pointer;
+}
+
+.container-filtro-botao img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.filtro-botoes {
+    position: absolute;
+    display: none; /* Inicialmente a lista está oculta */
+}
+
+.filtro-nome{
+    font-size: 1rem;
+    font-weight: 800;
+}
+.container-filtro-botao:hover {
+    text-decoration: underline;
+}
+
+.container-filtro-botao:hover img{
+    transform: rotate(180deg);
+    transition: none;
+}
+.container-filtro-botao:hover .filtro-botoes, .seta-container:hover .filtro-botoes {
+    display: flex; /* Quando o checkbox estiver marcado, a lista será exibida */
+    flex-direction: column;
+    width: 10rem;
+}
+
+.filtro-opcao {
+    border-radius: 0;
+    margin: 0;
+    font-weight: 400;
+    background-color: #161616;
+}
+
+.filtro-opcao:hover{
+    color: #161616;
+    background-color: #404040;
+}
 
 /* Estiliza a caixa de resultados da pesquisa */
 .resultados-pesquisa {
-    width: 60rem; /* Largura máxima da caixa de resultados */
-    height: 30vh; /* Altura máxima da caixa de resultados */
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 145vh; /* Largura máxima da caixa de resultados */
+    height: 0vh; /* Altura máxima da caixa de resultados MUDA PARA 5 VH QUANDO TERMINAR BURRO */
     overflow-y: auto; /* Adiciona rolagem vertical se necessário */
-    margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
+    margin: 1rem 0; /* Espaçamento acima da caixa de resultados */
     padding: 1rem; /* Espaçamento interno */
     border-radius: 0.6rem; /* Borda arredondada */
+    transition: height 1.5s ease-in-out;
 }
 
 /* Estiliza cada item de resultado */
 .item-resultado {
+    width: 63vh;
+    height: 50vh;
+    margin: 0.5rem;
     background: #89FC00; /* Cor de fundo dos itens */
     border-radius: 0.6rem; /* Borda arredondada */
-    padding: 1rem; /* Espaçamento interno */
-    margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
+    padding: 0.5rem 1rem 1rem 1rem; /* Espaçamento interno */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.item-resultado img {
+    height: 25vh;
+    width: 63vh;
+    border-radius: 0.6rem;
+    margin-top: 0.4rem;
 }
 
 /* Estiliza os títulos dentro dos itens de resultado */
@@ -91,6 +168,13 @@ section button:hover {
     font-size: 1.5rem; /* Tamanho da fonte */
     color: #FAFFFA; /* Cor do texto */
     font-weight: 800;
+    margin: 0.2rem 0;
+}
+
+.item-resultado h3{
+    color: #161616;
+    font-weight: 500;
+    margin: 0 auto;
 }
 
 /* Estiliza os links dentro dos itens de resultado */
@@ -106,8 +190,12 @@ section button:hover {
 
 /* Estiliza a descrição meta dentro dos itens de resultado */
 .descricao-meta {
+    height: 12vh;
+    width: 60vh;
     color: #45474B; /* Cor do texto */
     margin: 0.5rem 0; /* Margem acima e abaixo */
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 /* Estiliza o rodapé da página */

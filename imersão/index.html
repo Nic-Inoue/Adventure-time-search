@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,67 @@
     <script defer src="app.js"></script>
     <title>Hora de Aventura!</title>
 </head>
-<body>
-    <header>
-        <img src="./Adventuretimecuttedlogo.webp" alt="Adventure time título logo">
+
+<body id="body">
+    <header class="cabecalho">
+        <!-- <select name="" id=""></select> -->
     </header>
     <main>
-        <section>
-            <input type="text" placeholder="Quem você desenha conhecer no mundo de Ooo?">
+        <section class="main" id="main">
+            <img src="./assets/Adventure_Time_Logo.webp" alt="Adventure time título logo" id="imageLogo" class="image-logo">
+            <input id="campo-pesquisa" type="text" placeholder="Quem você deseja conhecer no mundo de Ooo?">
             <button onclick="pesquisar()">Pesquisar</button>
+            <div class="container-filtros" id="filtros">
+                <div class="container-filtro-botao">
+                    <label class="filtro-nome" for="filtroNome">Espécie</label>
+                    <input type="checkbox" id="filtroNome" style="display:none;">
+                    <span class="seta-container">
+                        <img src="./assets/arrow .png">    
+                    </span>
+                    <div class="filtro-botoes" id="filtro-botoes">
+                        <button class="filtro-opcao" onclick="filtrar('Humano', 'especie')">Humano</button>
+                        <button class="filtro-opcao" onclick="filtrar('Cão mágico', 'especie')">Cão mágico</button>
+                        <button class="filtro-opcao" onclick="filtrar('Vampiro', 'especie')">Vampiro</button>
+                        <button class="filtro-opcao" onclick="filtrar('Demônio' , 'especie')">Demônio</button>
+                        <button class="filtro-opcao" onclick="filtrar('Pinguim', 'especie')">Pinguim</button>
+                        <button class="filtro-opcao" onclick="filtrar('Elemental', 'especie')">Elemental</button>
+                    </div>
+                </div>
+                <div class="container-filtro-botao">
+                    <label class="filtro-nome" for="filtroNome">Ocupação</label>
+                    <input type="checkbox" id="filtroNome" style="display:none;">
+                    <img src="./assets/arrow .png">
+                    <div class="filtro-botoes" id="filtro-botoes">
+                        <button class="filtro-opcao" onclick="filtrar('Aventureiro', 'ocupacao')">Aventureiro</button>
+                        <button class="filtro-opcao" onclick="filtrar('Músico', 'ocupacao')">Músico</button>
+                        <button class="filtro-opcao" onclick="filtrar('Governante', 'ocupacao')">Governante</button>
+                        <button class="filtro-opcao" onclick="filtrar('Mascote', 'ocupacao')">Mascote</button>
+                    </div>
+                </div>
+                <div class="container-filtro-botao">
+                    <label class="filtro-nome" for="filtroNome">Região</label>
+                    <input type="checkbox" id="filtroNome" style="display:none;">
+                    <img src="./assets/arrow .png">
+                    <div class="filtro-botoes" id="filtro-botoes">
+                        <button class="filtro-opcao" onclick="filtrar('Casa da Árvore', 'regiao')">Casa da Árvore</button>
+                        <button class="filtro-opcao" onclick="filtrar('Noitosfera', 'regiao')">Noitosfera</button>
+                        <button class="filtro-opcao" onclick="filtrar('Reino do Gelo', 'regiao')">Reino do Gelo</button>
+                        <button class="filtro-opcao" onclick="filtrar('Reino Doce', 'regiao')">Reino Doce</button>
+                        <button class="filtro-opcao" onclick="filtrar('Reino do Fogo', 'regiao')">Reino do Fogo</button>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="resultados-pesquisa" id="resultados-pesquisa">
             <!-- <div class="item-resultado">
+                <img src="./assets/finn.jpg" alt="Foto do Finn">
                 <h2>
                     <a href="#" target="_blank">Finn, o Humano</a>
                 </h2>
                 <p class="descricao-meta">Finn, o Humano é o protagonista da aclamada série animada Hora de Aventura. Um garoto humano otimista, aventureiro e de bom coração, Finn vive em um mundo pós-apocalíptico chamado Terra de Ooo, mil anos após a “Grande Guerra dos Cogumelos”</p>
                 <a href="https://horadeaventura.fandom.com/pt-br/wiki/Finn" target="_blank">Mais informações</a>
-            </div>
-            <div class="item-resultado">
+            </div> -->
+            <!--<div class="item-resultado">
                 <h2>
                   <a href="#" target="_blank">Jake, o Cão</a>
                 </h2>
@@ -41,8 +85,9 @@
             </div> -->
         </section>
     </main>
-    <footer>
+    <footer id="footer">
         <p>2024 - Personagens de Ooo. Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
